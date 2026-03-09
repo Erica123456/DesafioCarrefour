@@ -1,16 +1,30 @@
-name: Teste CI/CD
+name: Testes Cypress CI/CD
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  hello-world:
+  cypress-tests:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: Mensagem de teste
-        run: echo "Pipeline CI/CD funcionando!"
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes Cypress
+        run: npx cypress run --reporter mochawesome
+
+      - name: Upload Mochawesome report
+        uses: actions/upload-artifact@v3
+        with:
+          name: mochawesome-report
+          path: cypress/results/
