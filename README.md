@@ -1,6 +1,4 @@
-#### DesafioCarrefour
-
-## Projeto de Testes Automatizados de API com Cypress
+## DesafioCarrefour - Projeto de Testes Automatizados de API com Cypress
 
 # Visão Geral
 Este projeto contém cenários de testes automatizados para validar endpoints da API.
