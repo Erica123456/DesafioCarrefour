@@ -1,0 +1,15 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente
+.env
+
+# Saídas de testes Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Logs
+*.log
+
+# Cache
+.cache/
