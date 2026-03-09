@@ -46,7 +46,8 @@ Obs: Verificar a disponibilidade dos servidores de API localhost ou API on line.
 Caso o servidor de API on line (https://serverest.dev/#/) esteja indisponível é possível executar os testes através do servidor local: http://localhost:3000
 - Subir o servidor local na máquina.
 - Executar o comando npx serverest/ no terminal (Inicia a API na porta padrão 3000)
-- Ajustar os scripts de testes cy.js alterando a url da requisiçao para: http://localhost:3000
+Obs: Como durante a implementação e execuçao dos testes o servidor on line estava indisponível,então todos os testes estão configurados para testar em localhost.
+
 
 # Casos de Teste Cobertos:
 # Cadastro de Usuários:
