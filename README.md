@@ -86,6 +86,12 @@ cypress/
 README.md              # Documentação do projeto;
 
 
+cypress/ ├── e2e/                # Arquivos de teste ├── fixtures/           # Dados mockados ├── results/            # Relatórios Mochawesome └── support/            # Configurações auxiliares
+.github/ └── workflows/ └── cypress.yml     # Workflow CI/CD
+README.md               # Documentação do projeto
+
+
+
 
 
 
