@@ -72,7 +72,7 @@ Caso o servidor de API on line (https://serverest.dev/#/) esteja indisponível �
 - Cenário Positivo - Retornar todos os usuários cadastrados e validar os dados.
 
 # Excluir Usuários:
-- Cenário Positivo - Excluir usuários por ID e validar mensagem (aguando servidor local e on line retomar para concluir testes)
+- Cenário Positivo - Excluir usuário existente e validar mensagem Registro excluído com sucesso
 
 # Estrutura do Projeto
 cypress/
