@@ -76,14 +76,14 @@ Caso o servidor de API on line (https://serverest.dev/#/) esteja indisponível �
 
 # Estrutura do Projeto
 cypress/
- ├── e2e/              # Arquivos de teste
- ├── fixtures/         # Dados mockados
- ├── results/          # Relatórios Mochawesome
- └── support/          # Configurações auxiliares
+ ├── e2e/              # Arquivos de teste;
+ ├── fixtures/         # Dados mockados;
+ ├── results/          # Relatórios Mochawesome;
+ └── support/          # Configurações auxiliares;
 .github/
  └── workflows/
-      └── cypress.yml  # Workflow CI/CD
-README.md              # Documentação do projeto
+      └── cypress.yml  # Workflow CI/CD;
+README.md              # Documentação do projeto;
 
 
 
