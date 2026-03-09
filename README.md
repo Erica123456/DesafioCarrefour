@@ -56,16 +56,16 @@ Os relatórios são disponibilizados como artefatos na aba Actions do GitHub.
    
 # Buscar Usuários:
 - Cenário Positivo - Retornar 200 ao buscar por ID e validar demais dados dos usuários.
-- Cenário Negativo - Retornar 400 ao buscar por ID e validar mensagem de usuário não encontrado.
+- Cenário Negativo - Retornar 400 ao buscar por ID e validar mensagem usuário não encontrado.
 
 # Editar Usuários:
-- Cenário Positivo - Editar dados de administrador e senha do usuário e validar mensagem Registro alterado com sucesso.
+- Cenário Positivo - Editar dados de administrador e senha do usuário e validar mensagem registro alterado com sucesso.
 
 # Listar Usuários Cadastrados:
 - Cenário Positivo - Retornar todos os usuários cadastrados e validar os dados.
 
 # Excluir Usuários:
-- Cenário Positivo - Excluir usuários por ID.
+- Cenário Positivo - Excluir usuários por ID e validar mensagem (aguando servidor local e on line retomar para concluir testes)
 
 # Estrutura do Projeto
 cypress/
