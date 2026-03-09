@@ -2,7 +2,7 @@
 
 describe('API - Cadastro de Usuários', () => {
 
-  it('Cenário Positivo - Cadastrar e excluir usuário', () => {
+  it('Cenário Positivo - Excluir usuário existente e validar mensagem Registro excluído com sucesso', () => {
 
     const emailDinamico = `luciana_${Date.now()}@qa.com.br`;
 
