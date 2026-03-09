@@ -41,7 +41,13 @@ Os relatórios são disponibilizados como artefatos na aba Actions do GitHub.
 - GET /users/{id}: Retorna os detalhes de um usuário específico.
 - PUT /users/{id}: Atualiza as informações de um usuário.
 - DELETE /users/{id}: Exclui um usuário.
- 
+Obs: Verificar a disponibilidade dos servidores de API localhost ou API on line.
+
+Caso o servidor de API on line (https://serverest.dev/#/) esteja indisponível é possível executar os testes através do servidor local: http://localhost:3000
+- Subir o servidor local na máquina.
+- Executar o comando npx serverest/ no terminal (Inicia a API na porta padrão 3000)
+- Ajustar os scripts de testes cy.js alterando a url da requisiçao para: http://localhost:3000
+
 # Casos de Teste Cobertos:
 # Cadastro de Usuários:
 - Cenário Positivo - Cadastrar novo usuário e validar mensagem Cadastro realizado com sucesso.
