@@ -11,9 +11,9 @@ Os testes foram implementados em Cypress, integrados a uma pipeline de CI/CD com
   
 # Instalação
 Clone o repositório e instale as dependências: 
-git clone https://github.com/Erica123456/DesafioCarrefour.git ;
-cd https://github.com/Erica123456/DesafioCarrefour.git ;
-npm install
+- git clone https://github.com/Erica123456/DesafioCarrefour.git
+- cd https://github.com/Erica123456/DesafioCarrefour.git 
+- npm install
 
 # Execução dos Testes
 Rodar localmente
