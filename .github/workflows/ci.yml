@@ -1,0 +1,16 @@
+name: Teste CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Mensagem de teste
+        run: echo "Pipeline CI/CD funcionando!"

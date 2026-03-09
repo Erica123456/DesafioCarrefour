@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-03-09T00:01:58.775Z",
+    "end": "2026-03-09T00:01:59.185Z",
+    "duration": 410,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "67e0557f-b728-4dde-af72-80d9f9509c4c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\EditarUsuarios.cy.js",
+      "file": "cypress\\e2e\\EditarUsuarios.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "444f68eb-1498-4fca-bd88-306cbf58add3",
+          "title": "API - Edição de Usuários",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cenário Positivo - Editar dados de administrador e senha do usuário e validar mensagem Registro alterado com sucesso",
+              "fullTitle": "API - Edição de Usuários Cenário Positivo - Editar dados de administrador e senha do usuário e validar mensagem Registro alterado com sucesso",
+              "timedOut": null,
+              "duration": 343,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 👉 Aqui você gera o email dinâmico ANTES da requisição para não cair na regra de email duplicado na execução\nconst emailDinamico = `Laura${Date.now()}@qa5.com`;\ncy.request({\n  method: 'PUT',\n  url: 'https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1',\n  body: {\n    nome: \"Laura Cardoso Gomes Neves\",\n    email: emailDinamico,\n    // 👉 Usa o email dinâmico aqui\n    password: \"novaSenha123\",\n    administrador: \"false\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(200);\n  //Valida a mensagem de sucesso\n  expect(response.body.message).to.equal(\"Registro alterado com sucesso\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 123\n}\nBody: {\"nome\":\"Laura Cardoso Gomes Neves\",\"email\":\"Laura1773014518803@qa5.com\",\"password\":\"novaSenha123\",\"administrador\":\"false\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:01:59 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: PUT\nURL: https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 123\n}\nBody: {\"nome\":\"Laura Cardoso Gomes Neves\",\"email\":\"Laura1773014518803@qa5.com\",\"password\":\"novaSenha123\",\"administrador\":\"false\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:01:59 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:49673/__cypress/runner/cypress_runner.js:136430:72)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:49673/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:49673/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:49673/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:49673/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:49673/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:49673/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/EditarUsuarios.cy.js:11:7)",
+                "diff": null
+              },
+              "uuid": "59091ca9-bd95-49f1-89c4-81bcb00d2440",
+              "parentUUID": "444f68eb-1498-4fca-bd88-306cbf58add3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "59091ca9-bd95-49f1-89c4-81bcb00d2440"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 343,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
