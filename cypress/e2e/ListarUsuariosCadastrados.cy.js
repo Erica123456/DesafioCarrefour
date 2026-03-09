@@ -4,7 +4,7 @@ describe('Listar Usuários - API', () => {
   it('Cenário Positivo - Retornar todos os usuários cadastrados e validar os dados', () => {
     cy.request({
       method: 'GET',
-      url: 'https://serverest.dev/usuarios'
+      url: 'http://localhost:3000/usuarios/'
     }).then((response) => {
       // Valida status code
       expect(response.status).to.eq(200);

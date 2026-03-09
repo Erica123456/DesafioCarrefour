@@ -11,7 +11,7 @@ describe('API - Cadastro de Usuários', () => {
 
     cy.request({
       method: 'POST',
-      url: 'https://serverest.dev/usuarios',
+      url: 'http://localhost:3000/usuarios/',
       body: {
         nome: "Marcio da Silva",
         email: emailDinamico,   // 👉 Usa o email dinâmico aqui
@@ -43,7 +43,7 @@ it('Cenário Positivo - Cadastrar novo usuário como administrador (false) e val
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     body: {
       nome: "Roberto da Silva",
       email: emailDinamico,   // 👉 Usa o email dinâmico aqui
@@ -74,7 +74,7 @@ it('Cenário Positivo - Cadastrar novo usuário com nome contendo acentos e vali
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     body: {
       nome: "José da Silva",
       email: emailDinamico,   // 👉 Usa o email dinâmico aqui
@@ -105,7 +105,7 @@ it('Cenário Positivo - Cadastrar novo usuário com e-mail válido e validar men
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     body: {
       nome: "Viviane Pereira",
       email: emailDinamico,   // 👉 Usa o email dinâmico aqui
@@ -136,7 +136,7 @@ it('Cenário Positivo - Cadastrar novo usuário com senha forte e validar mensag
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     body: {
       nome: "Viviane Pereira",
       email: emailDinamico,   // 👉 Usa o email dinâmico aqui
@@ -163,7 +163,7 @@ it('Cenário Negativo - Retornar erro quando o nome está vazio e validar mensag
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     failOnStatusCode: false, // evita que Cypress quebre em status de erro
     body: {
       nome: "",
@@ -187,7 +187,7 @@ it('Cenário Negativo - Retornar erro quando o email está vazio e validar mensa
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     failOnStatusCode: false, // evita que Cypress quebre em status de erro
     body: {
       nome: "Viviane Pereira",
@@ -211,7 +211,7 @@ it('Cenário Negativo - Retornar erro quando a password está vazia e validar me
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     failOnStatusCode: false, // evita que Cypress quebre em status de erro
     body: {
       nome: "Viviane Pereira",
@@ -234,7 +234,7 @@ it('Cenário Negativo - Retornar erro quando o email estiver inválido e retorna
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     failOnStatusCode: false, // evita que Cypress quebre em status de erro
     body: {
       nome: "Viviane Pereira",
@@ -259,7 +259,7 @@ it('Cenário Negativo - Retornar erro quando o email estiver duplicado e validar
 
   cy.request({
     method: 'POST',
-    url: 'https://serverest.dev/usuarios',
+    url: 'http://localhost:3000/usuarios/',
     body: {
       nome: "Viviane Pereira",
       email: "viviane@gmail2.com.br",

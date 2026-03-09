@@ -10,7 +10,7 @@ describe('API - Edição de Usuários', () => {
 
     cy.request({
       method: 'PUT',
-      url: 'https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1',
+      url: 'http://localhost:3000/usuarios/0uxuPY0cbmQhpEz1',
       body: {
         nome: "Laura Cardoso Gomes Neves",
         email: emailDinamico,   // 👉 Usa o email dinâmico aqui
