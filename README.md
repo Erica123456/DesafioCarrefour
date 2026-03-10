@@ -30,10 +30,10 @@ Acessar relatórios no GitHub Actions:
 Obs: Após a execução, os relatórios gerados na Vitual Machine são temporários por isso é necessário baixar para conseguir acessar depois.
 
 # Integração com CI/CD
-Os testes são executados automaticamente via GitHub Actions em:
+Os desejável era que os testes fossem executados e os relatórios disponibilizados automaticamente via GitHub Actions em:
 - push → sempre que código é enviado para o repositório.
 - pull_request → sempre que um PR é aberto ou atualizado.
-Os relatórios são disponibilizados como artefatos na aba Actions do GitHub.
+
 
 # API / Endpoints:
 - https://serverest.dev/#/
