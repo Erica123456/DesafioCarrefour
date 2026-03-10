@@ -1,8 +1,9 @@
 # Desafio Carrefour - Projeto de Testes Automatizados de API com Cypress
 
 # Visão Geral
-Este projeto contém cenários de testes automatizados para validar endpoints da API.
-Os testes foram implementados em Cypress, integrados a uma pipeline de CI/CD com GitHub Actions, e geram relatórios detalhados em Mochawesome.
+Este projeto contém cenários de testes automatizados para validar o gerenciamento de informações de usuários (Criação,
+atualização, exclusão e leitura de usuário) através dos endpoints da API.
+Os testes foram implementados em Cypress com javascript. A principio os testes e os relatórios Mochawesome deveriam ser integrados a pipeline de CI/CD com GitHub Actions. O Workflow foi descrito com a rotina que a pipeline deveria executar, porém duramte a implementação da maioria dos testes notou-se que o servidor https://serverest ficou indisponível. Sendo assim, foi necessário fazer o apontamento dos testes para executar em http://localhost:3000/ (dando start com npx serverest@latest). Testes locais não executam em pipelines no git hub actions, mesmo assim, houveram várias tentativas em integrarde forma local com docker, porém sem sucesso até o momento.
 
 # Configuração do Ambiente
 # Pré-requisitos
