@@ -11,6 +11,19 @@ jobs:
 
   cypress-run:
     runs-on: ubuntu-latest   
+    
+    services:
+      api:
+        image: node:v22.15.02
+        ports:
+          - 3000:3000
+        options: >-
+          --health-cmd="curl --fail http://localhost:3000/health || exit 1"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+        # Aqui você poderia rodar sua API com npm start ou outro comando
+
 
 
     steps:
@@ -20,24 +33,38 @@ jobs:
 
 
       # 2. Configurar Node.js
-      - name: Configurar Node.js
+      - name: Instalar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: v22.15.02   
+          node-version: v22.15.02  
+          
 
       # 3. Instalar dependências
       - name: Instalar dependências
         run: npm install
+        
+        
+      # 4. Subir API
+      - name: Subir API local
+        run: npm start &
+        
+        
+      # 5.Esperar API
+      - name: Esperar API estar disponível
+        run: npx wait-on http://localhost:3000/health
 
-      # 4. Rodar testes de API
+
+      # 6. Rodar testes de API
       - name: Testes de API
         run: npx cypress run --spec "cypress/e2e/**/*.cy.js"
+        
 
-      # 5. Rodar testes de Front-end
+      # 7. Rodar testes de Front-end
       - name: Testes de Front-end
         run: npx cypress run --spec "cypress/e2e/**/*.cy.js"
+        
 
-      # 6. Salvar relatórios de execução
+      # 8. Salvar relatórios de execução
       - name: Upload de relatórios Mochawesome
         uses: actions/upload-artifact@v3 
         with:
