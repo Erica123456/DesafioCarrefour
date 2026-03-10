@@ -14,7 +14,7 @@ jobs:
     
     services:
       api:
-        image: node:v22.15.02
+        image: node:22
         ports:
           - 3000:3000
         options: >-
