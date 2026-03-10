@@ -1,16 +1,47 @@
-name: Teste CI/CD
+name: Cypress Tests
 
 on:
-  push:
+  push:                  # dispara quando faz push para qualquer branch  
     branches: [ main ]
+  pull_request:          # dispara quando abre ou atualiza um pull request 
+    branches: [ main ]   # PRs direcionados para a branch main
 
 jobs:
-  hello-world:
-    runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-latest   
 
     steps:
+      # 1. Baixar o código do repositório
       - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: Mensagem de teste
-        run: echo "Pipeline CI/CD funcionando!"
+      # 2. Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: v22.15.02   
+
+      # 3. Instalar dependências
+      - name: Instalar dependências
+        run: npm install
+
+      # 4. Rodar testes de API
+      - name: Testes de API
+        run: npx cypress run --spec "cypress/e2e/**/*.cy.js"
+
+      # 5. Rodar testes de Front-end
+      - name: Testes de Front-end
+        run: npx cypress run --spec "cypress/e2e/**/*.cy.js"
+
+      # 6. Salvar relatórios de execução
+      - name: Upload de relatórios Mochawesome
+        uses: actions/upload-artifact@v3 
+        with:
+          name: mochawesome-report
+          path: cypress/results
+
+
+          
+
+
+          
