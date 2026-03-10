@@ -1,8 +1,9 @@
 # Desafio Carrefour - Projeto de Testes Automatizados de API com Cypress
 
 # Visão Geral
-Este projeto contém cenários de testes automatizados para validar endpoints da API.
-Os testes foram implementados em Cypress, integrados a uma pipeline de CI/CD com GitHub Actions, e geram relatórios detalhados em Mochawesome.
+Este projeto contém cenários de testes automatizados para validar o gerenciamento de informações de usuários (Criação,
+atualização, exclusão e leitura de usuário) através dos endpoints da API.
+Os testes foram implementados em Cypress com javascript. A principio os testes e os relatórios Mochawesome deveriam ser integrados a pipeline de CI/CD com GitHub Actions. Durante a implementação dos testes notou-se que o servidor https://serverest ficou indisponível e não mais retornou. Sendo assim, foi necessário fazer o apontamento dos testes para executar em http://localhost:3000/ (dando start com npx serverest@latest). O Workflow foi descrito com a rotina que a pipeline deveria executar, porém, testes locais não executam em pipelines no git hub actions, mesmo assim, houveram várias tentativas em realizar a integração de forma local com docker, porém sem sucesso até o momento.
 
 # Configuração do Ambiente
 # Pré-requisitos
@@ -16,26 +17,25 @@ Clone o repositório e instale as dependências:
 - npm install
 
 # Execução dos Testes
-Rodar localmente
-Para abrir o Cypress em modo interativo:
-npx cypress open
-
-Para rodar os testes em modo headless (com geração de relatórios):
+Rodar os testes em modo headless via terminal
 npx cypress run
+Subir o servidor local também via terminal (esse nao poderá ser fechado)
+npx serverest
 
-# Relatórios
-Acessar relatórios no GitHub Actions:
+
+# Relatórios (não foi possível executando em localhost)
+Acessar relatórios no GitHub Actions: 
 - Aba Actions > selecione a execução desejada > artifacts > baixe artefato mochawesome-report > abrir arquivo .html no navegador para visualizar os resultados.
 Obs: Após a execução, os relatórios gerados na Vitual Machine são temporários por isso é necessário baixar para conseguir acessar depois.
 
-# Integração com CI/CD
-Os testes são executados automaticamente via GitHub Actions em:
+# Integração com CI/CD (não foi possível executando em localhost)
+Testes e relatórios disponibilizados no github actions.
 - push → sempre que código é enviado para o repositório.
 - pull_request → sempre que um PR é aberto ou atualizado.
-Os relatórios são disponibilizados como artefatos na aba Actions do GitHub.
+
 
 # API / Endpoints:
-- https://serverest.dev/#/
+- local: http://localhost:3000
 - GET /users: Retorna uma lista de todos os usuários.
 - POST /users: Cria um novo usuário.
 - GET /users/{id}: Retorna os detalhes de um usuário específico.
@@ -44,9 +44,7 @@ Os relatórios são disponibilizados como artefatos na aba Actions do GitHub.
 Obs: Verificar a disponibilidade dos servidores de API localhost ou API on line.
 
 Caso o servidor de API on line (https://serverest.dev/#/) esteja indisponível é possível executar os testes através do servidor local: http://localhost:3000
-- Subir o servidor local na máquina.
-- Executar o comando npx serverest/ no terminal (Inicia a API na porta padrão 3000)
-Obs: Como durante a implementação e execuçao dos testes o servidor on line estava indisponível,então todos os testes estão configurados para testar em localhost.
+Obs: Como durante a implementação e execuçao dos testes o servidor on line estava indisponível, então todos os testes estão apontados para testar em localhost.
 
 
 # Casos de Teste Cobertos:
