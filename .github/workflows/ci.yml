@@ -1,5 +1,6 @@
 name: Cypress Tests
 
+
 on:
   push:                  # dispara quando faz push para qualquer branch  
     branches: [ main ]
@@ -7,13 +8,16 @@ on:
     branches: [ main ]   # PRs direcionados para a branch main
 
 jobs:
+
   cypress-run:
     runs-on: ubuntu-latest   
+
 
     steps:
       # 1. Baixar o código do repositório
       - name: Checkout código
         uses: actions/checkout@v3
+
 
       # 2. Configurar Node.js
       - name: Configurar Node.js
@@ -44,4 +48,4 @@ jobs:
           
 
 
-          
+

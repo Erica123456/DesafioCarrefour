@@ -1,0 +1,318 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 10,
+    "passes": 0,
+    "pending": 0,
+    "failures": 10,
+    "start": "2026-03-09T00:02:05.409Z",
+    "end": "2026-03-09T00:02:09.746Z",
+    "duration": 4337,
+    "testsRegistered": 10,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cadastroUsuarios.cy.js",
+      "file": "cypress\\e2e\\cadastroUsuarios.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Cenário Positivo - Cadastrar novo usuário como administrador (false) e validar mensagem cadastro realizado com sucesso",
+          "fullTitle": "Cenário Positivo - Cadastrar novo usuário como administrador (false) e validar mensagem cadastro realizado com sucesso",
+          "timedOut": null,
+          "duration": 448,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "// 👉 Aqui você gera o email dinâmico ANTES da requisição para não cair na regra de email duplicado na execução\nconst emailDinamico = `marcio_${Date.now()}@qa.com.br`;\ncy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  body: {\n    nome: \"Roberto da Silva\",\n    email: emailDinamico,\n    // 👉 Usa o email dinâmico aqui\n    password: \"teste12345\",\n    administrador: \"false\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(201);\n  //Valida o ID do usuário criado \n  expect(response.body._id).not.empty;\n  //Valida a mensagem de sucesso\n  expect(response.body.message).to.equal(\"Cadastro realizado com sucesso\");\n});",
+          "err": {
+            "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 116\n}\nBody: {\"nome\":\"Roberto da Silva\",\"email\":\"marcio_1773014525440@qa.com.br\",\"password\":\"teste12345\",\"administrador\":\"false\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:05 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+            "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 116\n}\nBody: {\"nome\":\"Roberto da Silva\",\"email\":\"marcio_1773014525440@qa.com.br\",\"password\":\"teste12345\",\"administrador\":\"false\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:05 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:49673/__cypress/runner/cypress_runner.js:136430:72)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:49673/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:49673/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:49673/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:49673/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:49673/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:49673/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:44:5)",
+            "diff": null
+          },
+          "uuid": "b260503a-cb45-4324-8279-d8806dfa6bb3",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Positivo - Cadastrar novo usuário com nome contendo acentos e validar mensagem validar mensagem cadastro realizado com sucesso",
+          "fullTitle": "Cenário Positivo - Cadastrar novo usuário com nome contendo acentos e validar mensagem validar mensagem cadastro realizado com sucesso",
+          "timedOut": null,
+          "duration": 382,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "// 👉 Aqui você gera o email dinâmico ANTES da requisição para não cair na regra de email duplicado na execução\nconst emailDinamico = `jose_${Date.now()}@qa.com.br`;\ncy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  body: {\n    nome: \"José da Silva\",\n    email: emailDinamico,\n    // 👉 Usa o email dinâmico aqui\n    password: \"teste12345\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(201);\n  //Valida o ID do usuário criado \n  expect(response.body._id).not.empty;\n  //Valida a mensagem de sucesso\n  expect(response.body.message).to.equal(\"Cadastro realizado com sucesso\");\n});",
+          "err": {
+            "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 111\n}\nBody: {\"nome\":\"José da Silva\",\"email\":\"jose_1773014525948@qa.com.br\",\"password\":\"teste12345\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:06 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+            "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 111\n}\nBody: {\"nome\":\"José da Silva\",\"email\":\"jose_1773014525948@qa.com.br\",\"password\":\"teste12345\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:06 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:49673/__cypress/runner/cypress_runner.js:136430:72)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:49673/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:49673/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:49673/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:49673/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:49673/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:49673/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:75:5)",
+            "diff": null
+          },
+          "uuid": "bafffdcf-2bba-457b-8223-92564dde22b5",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Positivo - Cadastrar novo usuário com e-mail válido e validar mensagem cadastro realizado com sucesso",
+          "fullTitle": "Cenário Positivo - Cadastrar novo usuário com e-mail válido e validar mensagem cadastro realizado com sucesso",
+          "timedOut": null,
+          "duration": 373,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "// 👉 Aqui você gera o email dinâmico ANTES da requisição para não cair na regra de email duplicado na execução\nconst emailDinamico = `viviane_${Date.now()}@gmail.com.br`;\ncy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  body: {\n    nome: \"Viviane Pereira\",\n    email: emailDinamico,\n    // 👉 Usa o email dinâmico aqui\n    password: \"teste12345\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(201);\n  //Valida o ID do usuário criado \n  expect(response.body._id).not.empty;\n  //Valida a mensagem de sucesso\n  expect(response.body.message).to.equal(\"Cadastro realizado com sucesso\");\n});",
+          "err": {
+            "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 118\n}\nBody: {\"nome\":\"Viviane Pereira\",\"email\":\"viviane_1773014526382@gmail.com.br\",\"password\":\"teste12345\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:06 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+            "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 118\n}\nBody: {\"nome\":\"Viviane Pereira\",\"email\":\"viviane_1773014526382@gmail.com.br\",\"password\":\"teste12345\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:06 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:49673/__cypress/runner/cypress_runner.js:136430:72)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:49673/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:49673/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:49673/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:49673/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:49673/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:49673/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:106:5)",
+            "diff": null
+          },
+          "uuid": "5cedb78e-21f8-4cb0-8a34-524577270640",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Positivo - Cadastrar novo usuário com senha forte e validar mensagem cadastro realizado com sucesso",
+          "fullTitle": "Cenário Positivo - Cadastrar novo usuário com senha forte e validar mensagem cadastro realizado com sucesso",
+          "timedOut": null,
+          "duration": 356,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "// 👉 Aqui você gera o email dinâmico ANTES da requisição para não cair na regra de email duplicado na execução\nconst emailDinamico = `viviane_${Date.now()}@gmail.com.br`;\ncy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  body: {\n    nome: \"Viviane Pereira\",\n    email: emailDinamico,\n    // 👉 Usa o email dinâmico aqui\n    password: \"Teste@123\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(201);\n  //Valida o ID do usuário criado \n  expect(response.body._id).not.empty;\n  //Valida a mensagem de sucesso\n  expect(response.body.message).to.equal(\"Cadastro realizado com sucesso\");\n});",
+          "err": {
+            "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 117\n}\nBody: {\"nome\":\"Viviane Pereira\",\"email\":\"viviane_1773014526785@gmail.com.br\",\"password\":\"Teste@123\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:07 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+            "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 117\n}\nBody: {\"nome\":\"Viviane Pereira\",\"email\":\"viviane_1773014526785@gmail.com.br\",\"password\":\"Teste@123\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:07 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:49673/__cypress/runner/cypress_runner.js:136430:72)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:49673/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:49673/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:49673/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:49673/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:49673/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:49673/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:137:5)",
+            "diff": null
+          },
+          "uuid": "125e556d-26cb-43b1-8e1e-1f449a7da3b4",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Negativo - Retornar erro quando o nome está vazio e validar mensagem nome não pode ficar em branco",
+          "fullTitle": "Cenário Negativo - Retornar erro quando o nome está vazio e validar mensagem nome não pode ficar em branco",
+          "timedOut": null,
+          "duration": 367,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  failOnStatusCode: false,\n  // evita que Cypress quebre em status de erro\n  body: {\n    nome: \"\",\n    email: \"viviane@gmail2.com.br\",\n    password: \"Teste@123\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(400);\n  //Valida a mensagem de erro para nome vazio\n  expect(response.body.nome).to.equal(\"nome não pode ficar em branco\");\n});",
+          "err": {
+            "message": "AssertionError: expected 503 to equal 400",
+            "estack": "AssertionError: expected 503 to equal 400\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:177:31)\n    at getRet (http://localhost:49673/__cypress/runner/cypress_runner.js:122806:20)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:49673/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:49673/__cypress/runner/cypress_runner.js:122817:66)\n    at Context.then (http://localhost:49673/__cypress/runner/cypress_runner.js:123068:21)",
+            "diff": "- 503\n+ 400\n"
+          },
+          "uuid": "28a4a0fb-f4f5-41f8-a4ac-e5f3b5821264",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Negativo - Retornar erro quando o email está vazio e validar mensagem email não pode ficar em branco",
+          "fullTitle": "Cenário Negativo - Retornar erro quando o email está vazio e validar mensagem email não pode ficar em branco",
+          "timedOut": null,
+          "duration": 402,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  failOnStatusCode: false,\n  // evita que Cypress quebre em status de erro\n  body: {\n    nome: \"Viviane Pereira\",\n    email: \"\",\n    password: \"Teste@123\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(400);\n  //Valida a mensagem de erro para email vazio\n  expect(response.body.email).to.equal(\"email não pode ficar em branco\");\n});",
+          "err": {
+            "message": "AssertionError: expected 503 to equal 400",
+            "estack": "AssertionError: expected 503 to equal 400\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:201:31)\n    at getRet (http://localhost:49673/__cypress/runner/cypress_runner.js:122806:20)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:49673/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:49673/__cypress/runner/cypress_runner.js:122817:66)\n    at Context.then (http://localhost:49673/__cypress/runner/cypress_runner.js:123068:21)",
+            "diff": "- 503\n+ 400\n"
+          },
+          "uuid": "966f9335-bea3-4b95-b4f9-c21661fe3a92",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Negativo - Retornar erro quando a password está vazia e validar mensagem password não pode ficar em branco",
+          "fullTitle": "Cenário Negativo - Retornar erro quando a password está vazia e validar mensagem password não pode ficar em branco",
+          "timedOut": null,
+          "duration": 350,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  failOnStatusCode: false,\n  // evita que Cypress quebre em status de erro\n  body: {\n    nome: \"Viviane Pereira\",\n    email: \"viviane@gmail2.com.br\",\n    password: \"\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(400);\n  //Valida a mensagem de erro para password vazia\n  expect(response.body.password).to.equal(\"password não pode ficar em branco\");\n});",
+          "err": {
+            "message": "AssertionError: expected 503 to equal 400",
+            "estack": "AssertionError: expected 503 to equal 400\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:225:31)\n    at getRet (http://localhost:49673/__cypress/runner/cypress_runner.js:122806:20)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:49673/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:49673/__cypress/runner/cypress_runner.js:122817:66)\n    at Context.then (http://localhost:49673/__cypress/runner/cypress_runner.js:123068:21)",
+            "diff": "- 503\n+ 400\n"
+          },
+          "uuid": "a1e19c45-6beb-4dd9-a0f5-329320166273",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Negativo - Retornar erro quando o email estiver inválido e retornar mensagem email deve ser um email válido",
+          "fullTitle": "Cenário Negativo - Retornar erro quando o email estiver inválido e retornar mensagem email deve ser um email válido",
+          "timedOut": null,
+          "duration": 433,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  failOnStatusCode: false,\n  // evita que Cypress quebre em status de erro\n  body: {\n    nome: \"Viviane Pereira\",\n    email: \"viviane.gmail.com.br\",\n    password: \"Teste@123\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(400);\n  //Valida a mensagem de erro para email inválido\n  expect(response.body.email).to.equal(\"email deve ser um email válido\");\n});",
+          "err": {
+            "message": "AssertionError: expected 503 to equal 400",
+            "estack": "AssertionError: expected 503 to equal 400\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:248:31)\n    at getRet (http://localhost:49673/__cypress/runner/cypress_runner.js:122806:20)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:49673/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:49673/__cypress/runner/cypress_runner.js:122817:66)\n    at Context.then (http://localhost:49673/__cypress/runner/cypress_runner.js:123068:21)",
+            "diff": "- 503\n+ 400\n"
+          },
+          "uuid": "5fb3986f-661a-4b66-8b79-b2063936f7f6",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Cenário Negativo - Retornar erro quando o email estiver duplicado e validar mensagem Este email já está sendo usado",
+          "fullTitle": "Cenário Negativo - Retornar erro quando o email estiver duplicado e validar mensagem Este email já está sendo usado",
+          "timedOut": null,
+          "duration": 360,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  body: {\n    nome: \"Viviane Pereira\",\n    email: \"viviane@gmail2.com.br\",\n    password: \"Teste@123\",\n    administrador: \"true\"\n  },\n  failOnStatusCode: false // evita que Cypress quebre em status de erro \n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(400);\n  //Valida a mensagem de erro para email duplicado\n  expect(response.body.message).to.equal(\"Este email já está sendo usado\");\n});",
+          "err": {
+            "message": "AssertionError: expected 503 to equal 400",
+            "estack": "AssertionError: expected 503 to equal 400\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:273:31)\n    at getRet (http://localhost:49673/__cypress/runner/cypress_runner.js:122806:20)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:49673/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:49673/__cypress/runner/cypress_runner.js:122817:66)\n    at Context.then (http://localhost:49673/__cypress/runner/cypress_runner.js:123068:21)",
+            "diff": "- 503\n+ 400\n"
+          },
+          "uuid": "5ef7e279-c8ae-4bec-b32f-f4c24bd949e0",
+          "parentUUID": "67d802e5-69b2-4860-8e0b-58f8f34c0427",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "98d3e8fc-6296-4f71-a02c-490c83924b0f",
+          "title": "API - Cadastro de Usuários",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cenário Positivo - Cadastrar novo usuário e validar mensagem Cadastro realizado com sucesso ",
+              "fullTitle": "API - Cadastro de Usuários Cenário Positivo - Cadastrar novo usuário e validar mensagem Cadastro realizado com sucesso ",
+              "timedOut": null,
+              "duration": 363,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 👉 Aqui você gera o email dinâmico ANTES da requisição para não cair na regra de email duplicado na execução\nconst emailDinamico = `marcio_${Date.now()}@qa.com.br`;\ncy.request({\n  method: 'POST',\n  url: 'https://serverest.dev/usuarios',\n  body: {\n    nome: \"Marcio da Silva\",\n    email: emailDinamico,\n    // 👉 Usa o email dinâmico aqui\n    password: \"teste12345\",\n    administrador: \"true\"\n  }\n}).then(response => {\n  //Valida o status code\n  expect(response.status).to.equal(201);\n  //Valida o ID do usuário criado\n  expect(response.body._id).not.empty;\n  //Valida a mensagem de sucesso\n  expect(response.body.message).to.equal(\"Cadastro realizado com sucesso\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 114\n}\nBody: {\"nome\":\"Marcio da Silva\",\"email\":\"marcio_1773014529374@qa.com.br\",\"password\":\"teste12345\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:09 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://serverest.dev/usuarios\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 114\n}\nBody: {\"nome\":\"Marcio da Silva\",\"email\":\"marcio_1773014529374@qa.com.br\",\"password\":\"teste12345\",\"administrador\":\"true\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:02:09 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:49673/__cypress/runner/cypress_runner.js:136430:72)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:49673/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:49673/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:49673/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:49673/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:49673/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:49673/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/cadastroUsuarios.cy.js:12:7)",
+                "diff": null
+              },
+              "uuid": "ce7170bc-19d0-4fbf-af49-3839265a970b",
+              "parentUUID": "98d3e8fc-6296-4f71-a02c-490c83924b0f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "ce7170bc-19d0-4fbf-af49-3839265a970b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 363,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [
+        "b260503a-cb45-4324-8279-d8806dfa6bb3",
+        "bafffdcf-2bba-457b-8223-92564dde22b5",
+        "5cedb78e-21f8-4cb0-8a34-524577270640",
+        "125e556d-26cb-43b1-8e1e-1f449a7da3b4",
+        "28a4a0fb-f4f5-41f8-a4ac-e5f3b5821264",
+        "966f9335-bea3-4b95-b4f9-c21661fe3a92",
+        "a1e19c45-6beb-4dd9-a0f5-329320166273",
+        "5fb3986f-661a-4b66-8b79-b2063936f7f6",
+        "5ef7e279-c8ae-4bec-b32f-f4c24bd949e0"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 3471,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

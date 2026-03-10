@@ -1,0 +1,152 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2026-03-09T00:01:54.876Z",
+    "end": "2026-03-09T00:01:57.256Z",
+    "duration": 2380,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0b4f9f96-26fa-476f-88b1-c80be812d045",
+      "title": "",
+      "fullFile": "cypress\\e2e\\BuscarUsuariosID.cy.js",
+      "file": "cypress\\e2e\\BuscarUsuariosID.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "34285536-f983-44d2-b1d4-71aaca260777",
+          "title": "Buscar Usuários por ID- API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cenário Positivo - Retornar 200 ao buscar por ID e validar demais dados dos usuários",
+              "fullTitle": "Buscar Usuários por ID- API Cenário Positivo - Retornar 200 ao buscar por ID e validar demais dados dos usuários",
+              "timedOut": null,
+              "duration": 1956,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1' // substitua por um ID válido \n}).then(response => {\n  // Valida status code \n  expect(response.status).to.equal(200);\n  // Valida campos do usuário\n  expect(response.body.nome).to.equal('Fulano da Silva');\n  expect(response.body.email).to.equal('fulano@qa.com');\n  expect(response.body.password).to.equal('teste');\n  expect(response.body.administrador).to.equal('true');\n  expect(response.body._id).to.equal('0uxuPY0cbmQhpEz1');\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:01:56 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/15.11.0 Chrome/138.0.7204.251 Electron/37.6.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 503 - Service Unavailable\nHeaders: {\n  \"date\": \"Mon, 09 Mar 2026 00:01:56 GMT\",\n  \"content-type\": \"text/html; charset=UTF-8\",\n  \"server\": \"Google Frontend\",\n  \"content-length\": \"302\"\n}\nBody: \n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>503 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The service you requested is not available yet.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:49673/__cypress/runner/cypress_runner.js:136430:72)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://localhost:49673/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://localhost:49673/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://localhost:49673/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://localhost:49673/__cypress/runner/cypress_runner.js:1671:18)\n    at _drainQueueStep (http://localhost:49673/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://localhost:49673/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://localhost:49673/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/BuscarUsuariosID.cy.js:5:7)",
+                "diff": null
+              },
+              "uuid": "7fa7e934-4942-48cb-8af5-60d1272900e4",
+              "parentUUID": "34285536-f983-44d2-b1d4-71aaca260777",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "7fa7e934-4942-48cb-8af5-60d1272900e4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1956,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "793bd61a-1597-42b4-bc22-cb44d7512c85",
+          "title": "Buscar Usuários por ID- API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cenário Negativo - Retornar 400 ao buscar por ID e validar mensagem de usuário não encontrado",
+              "fullTitle": "Buscar Usuários por ID- API Cenário Negativo - Retornar 400 ao buscar por ID e validar mensagem de usuário não encontrado",
+              "timedOut": null,
+              "duration": 333,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://serverest.dev/usuarios/nxM1gmhh6lTQb3y5',\n  // substitua por um ID inválido\n  failOnStatusCode: false // permite capturar o body mesmo em erro\n}).then(response => {\n  // Valida status code\n  expect(response.status).to.equal(400);\n  // Valida mensagem de erro\n  expect(response.body.message).to.equal('Usuário não encontrado');\n});",
+              "err": {
+                "message": "AssertionError: expected 503 to equal 400",
+                "estack": "AssertionError: expected 503 to equal 400\n    at Context.eval (webpack://desafioapicarrefour/./cypress/e2e/BuscarUsuariosID.cy.js:34:33)\n    at getRet (http://localhost:49673/__cypress/runner/cypress_runner.js:122806:20)\n    at tryCatcher (http://localhost:49673/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (http://localhost:49673/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (http://localhost:49673/__cypress/runner/cypress_runner.js:122817:66)\n    at Context.then (http://localhost:49673/__cypress/runner/cypress_runner.js:123068:21)",
+                "diff": "- 503\n+ 400\n"
+              },
+              "uuid": "1172fb34-5c3d-4a98-9573-193688ae041a",
+              "parentUUID": "793bd61a-1597-42b4-bc22-cb44d7512c85",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "1172fb34-5c3d-4a98-9573-193688ae041a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 333,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
